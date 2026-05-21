@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío Técnico: Simuladores Interactivos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Plataforma de Simuladores Matemáticos</h1>
+        <p>Desafío Técnico de Programación Web</p>
+    </header>
+
+    <main class="container">
+        <section class="card" id="section-inscription">
+            <h2>1. Formulario de Inscripción al Sistema</h2>
+            <form id="form-inscription" onsubmit="return registrarUsuario(event)">
+                <div class="form-group">
+                    <label for="userName">Nombre Completo:</label>
+                    <input type="text" id="userName" required placeholder="Ej. Juan Pérez">
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Correo Electrónico:</label>
+                    <input type="email" id="userEmail" required placeholder="juan@example.com">
+                </div>
+                <button type="submit" class="btn">Ingresar a los Simuladores</button>
+            </form>
+            <div id="welcome-message" class="result-box hidden"></div>
+        </section>
+
+        <div id="simulators-container" class="hidden">
+            
+            <section class="card">
+                <h2>2. Simulador de Transferencia de Calor (Ley de Enfriamiento)</h2>
+                <p class="formula-box">Fórmula: $T = T_s + (T_0 - T_s) \cdot e^{-k \cdot t}$</p>
+                
+                <form id="form-heat" onsubmit="return calcularEnfriamiento(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="t0">Temperatura Inicial ($T_0$ °C):</label>
+                            <input type="number" id="t0" value="120" step="any" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ts">Temperatura Entorno ($T_s$ °C):</label>
+                            <input type="number" id="ts" value="38" step="any" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="k-constant">Constante de enfriamiento ($k$):</label>
+                            <input type="number" id="k-constant" value="0.45" step="any" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Tiempo en horas ($t$):</label>
+                            <input type="number" id="time" value="3" step="any" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">Calcular Temperatura Final</button>
+                </form>
+                <div id="result-heat" class="result-box hidden"></div>
+            </section>
+
+            <section class="card">
+                <h2>3. Calculador de Combinaciones Complejas (Caso Sorteo)</h2>
+                <p class="formula-box">Fórmula: $C(n, r) = \frac{n!}{r! \cdot (n - r)!}$</p>
+                
+                <form id="form-combinations" onsubmit="return calcularSorteo(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="n1">Grupo 1 - Elementos ($n_1$):</label>
+                            <input type="number" id="n1" value="59" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="r1">Grupo 1 - Tomados ($r_1$):</label>
+                            <input type="number" id="r1" value="5" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="n2">Grupo 2 - Elementos ($n_2$):</label>
+                            <input type="number" id="n2" value="35" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="r2">Grupo 2 - Tomados ($r_2$):</label>
+                            <input type="number" id="r2" value="1" min="0" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">Calcular Combinaciones Totales</button>
+                </form>
+                <div id="result-combinations" class="result-box hidden"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Desarrollo de Simuladores Interactivos con Lógica Matemática</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
